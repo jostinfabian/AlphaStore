@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--j07%fm%q@mfqzrny6h7vug^2k$j-qiv3qs6d9^!r@a76^=@mb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alpha-sneakers.herokuapp.com','127.0.0.1']# Add your host here
+ALLOWED_HOSTS = ['alpha-sneakers.herokuapp.com', '127.0.0.1']  # Add your host here
 
 # Application definition
 
@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'AlphaStore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'dqu4pqv09k7pg',  # Add your database name here
+        'USER': 'hclhwlazzwkfkq',  # Add your database user here
+        'PASSWORD': '2c8ed6817a8312af3953c4ae732f28ccdc3e0cbf711afaf071b22d617adfbc57',
+        # Add your database password here
+        'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',  # Add your database host here
+        'PORT': '5432',  # Add your database port here
     }
 }
 
