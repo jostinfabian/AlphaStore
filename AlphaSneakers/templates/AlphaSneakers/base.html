@@ -11,6 +11,7 @@
 <body>
 <!-- Menú de navegación -->
 <header>
+    <!--Contenedor de la barra de navegación-->
     <nav>
         <ul class="menu">
             <li><a href="/">Inicio</a></li>
@@ -30,6 +31,8 @@
             <li><a href="/favoritos">Favoritos</a></li>
         </ul>
     </nav>
+    <!--Final de la barra de navegación -->
+
 </header>
 <!-- Contenido -->
 {% block content %}
@@ -40,6 +43,37 @@
 <!-- Pie de página -->
 <footer>
     <!-- Código HTML del pie de página de Nike -->
+    <div class="contenedor">
+        <div class="footer-secciones">
+            <h3>Acerca de Nike</h3>
+            <ul>
+                <li><a href="/nuestra-historia">Nuestra historia</a></li>
+                <li><a href="/trabaja-con-nosotros">Trabaja con nosotros</a></li>
+                <li><a href="/investor-relations">Relaciones con inversores</a></li>
+            </ul>
+        </div>
+        <div class="footer-secciones">
+            <h3>Servicio al cliente</h3>
+            <ul>
+                <li><a href="/ayuda">Ayuda</a></li>
+                <li><a href="/politica-de-privacidad">Política de privacidad</a></li>
+                <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+            </ul>
+        </div>
+        <div class="footer-secciones">
+            <h3>Síguenos</h3>
+            <ul class="redes-sociales">
+                <li><a href="#"><i class="fab fa-facebook-square"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="derechos-reservados">
+        Copyright &copy; Nike, Inc. Todos los derechos reservados.
+    </div>
+    <!-- Final del código HTML del pie de página de Nike -->
+
 </footer>
 </body>
 </html>
