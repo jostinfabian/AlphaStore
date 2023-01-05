@@ -1,3 +1,44 @@
 {% extends 'AlphaSneakers/base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+{% endblock %}
 {% block content %}
+    <!-- Slider de imágenes -->
+    <div class="slider">
+        <ul>
+            <li><img src="/static/img/slider1.jpg" alt="Slider 1"></li>
+            <li><img src="/static/img/slider2.jpg" alt="Slider 2"></li>
+            <li><img src="/static/img/slider3.jpg" alt="Slider 3"></li>
+        </ul>
+    </div>
+    <!-- Sección de productos destacados -->
+    <div class="contenedor">
+        <h2>Productos destacados</h2>
+        <div class="productos-destacados">
+            <!-- Producto 1 -->
+            <div class="producto">
+                <img src="/static/img/producto1.jpg" alt="Producto 1">
+                <h3>Zapatillas de running</h3>
+                <p>$100</p>
+                <a href="/producto/1" class="boton">Ver detalles</a>
+            </div>
+            <!-- Producto 2 -->
+            <div class="producto">
+                <img src="/static/img/producto2.jpg" alt="Producto 2">
+                <h3>Camiseta de entrenamiento</h3>
+                <p>$50</p>
+                <a href="/producto/2" class="boton">Ver detalles</a>
+            </div>
+            <!-- Producto 3 -->
+            <div class="producto">
+                <img src="/static/img/producto3.jpg" alt="Producto 3">
+                <h3>Pantalones de chándal</h3>
+                <p>$80</p>
+                <a href="/producto/3" class="boton">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
