@@ -1,14 +1,14 @@
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 
-from AlphaSneakers.models import Sneaker, Category, Brand, Promotion, BlogPost, SocialPost
+from AlphaSneakers.models import *
 
 
 # Create your views here.
 
 
 def home_view(request):
-    featured_sneakers = Sneaker.objects.filter(featured=True)
+    featured_sneakers = Sneaker.objects.filter()  # Recupera los productos destacados
     promotions = Promotion.objects.all()
     context = {
         'featured_sneakers': featured_sneakers,
@@ -39,35 +39,53 @@ def contact(request):
         return redirect('contact')
     return render(request, 'AlphaSneakers/contact.html', {})
 
+
+#  Una vista para mostrar la lista de todos los productos disponibles, con filtros para permitir a los usuarios buscar y filtrar productos por categoría, marca, tamaño y precio.
 def product_list(request):
+    # Recupera los productos de la base de datos
     sneakers = Sneaker.objects.all()
-    categories = Category.objects.all()
-    brands = Brand.objects.all()
-
-    # Filtros para buscar y filtrar productos
-    category_filter = request.GET.get('category')
-    if category_filter:
-        sneakers = sneakers.filter(category__name=category_filter)
-    brand_filter = request.GET.get('brand')
-    if brand_filter:
-        sneakers = sneakers.filter(brand__name=brand_filter)
-    size_filter = request.GET.get('size')
-    if size_filter:
-        sneakers = sneakers.filter(size=size_filter)
-    price_filter = request.GET.get('price')
-    if price_filter:
-        sneakers = sneakers.filter(price__lte=price_filter)
-
+    # Filtra los productos en función de las categorías seleccionadas
+    categories = request.GET.getlist('category')
+    if categories:
+        sneakers = sneakers.filter(category__in=categories)
+    # Filtra los productos en función de las marcas seleccionadas
+    brands = request.GET.getlist('brand')
+    if brands:
+        sneakers = sneakers.filter(brand__in=brands)
+    # Filtra los productos en función de los tamaños seleccionados
+    sizes = request.GET.getlist('size')
+    if sizes:
+        sneakers = sneakers.filter(size__in=sizes)
+    # Filtra los productos en función de los precios seleccionados
+    prices = request.GET.getlist('price')
+    if prices:
+        if '0-100' in prices:
+            sneakers = sneakers.filter(price__gte=0, price__lte=100)
+        if '100-200' in prices:
+            sneakers = sneakers.filter(price__gte=100, price__lte=200)
+        if '200-300' in prices:
+            sneakers = sneakers.filter(price__gte=200, price__lte=300)
+        if '300-400' in prices:
+            sneakers = sneakers.filter(price__gte=300, price__lte=400)
+        if '400-500' in prices:
+            sneakers = sneakers.filter(price__gte=400, price__lte=500)
+        if '500-600' in prices:
+            sneakers = sneakers.filter(price__gte=500, price__lte=600)
+        if '600-700' in prices:
+            sneakers = sneakers.filter(price__gte=600, price__lte=700)
+        if '700-800' in prices:
+            sneakers = sneakers.filter(price__gte=700, price__lte=800)
+        if '800-900' in prices:
+            sneakers = sneakers.filter(price__gte=800, price__lte=900)
+        if '900-1000' in prices:
+            sneakers = sneakers.filter(price__gte=900, price__lte=1000)
+        if '1000-' in prices:
+            sneakers = sneakers.filter(price__gte=1000)
     context = {
         'sneakers': sneakers,
-        'categories': categories,
-        'brands': brands,
-        'category_filter': category_filter,
-        'brand_filter': brand_filter,
-        'size_filter': size_filter,
-        'price_filter': price_filter,
     }
     return render(request, 'AlphaSneakers/product_list.html', context)
+
 
 
 def product_detail(request, pk):
