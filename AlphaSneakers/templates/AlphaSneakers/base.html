@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaSneakers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaSneakers</title>
     {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
 </head>
 <body>
-  <!-- Menú de navegación -->
-  <nav>
-    <!-- Código HTML del menú de navegación de Nike -->
-      <!--Similar Nike navigation menu HTML code here-->
+<!-- Menú de navegación -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hombre">Hombre</a></li>
+            <li><a href="/mujer">Mujer</a></li>
+            <li><a href="/niños">Niños</a></li>
+            <li>
+                <form>
+                    <input type="text" placeholder="Buscar">
+                    <button type="submit">Enviar</button>
+                </form>
+            </li>
+        </ul>
+        <ul class="menu-secundario">
+            <li><a href="/mi-cuenta">Mi cuenta</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+            <li><a href="/favoritos">Favoritos</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Contenido -->
+{% block content %}
+
+{% endblock %}
 
 
-
-  </nav>
-
-  {% block content %}{% endblock %}
-
-  <!-- Pie de página -->
-  <footer>
+<!-- Pie de página -->
+<footer>
     <!-- Código HTML del pie de página de Nike -->
-  </footer>
+</footer>
 </body>
 </html>

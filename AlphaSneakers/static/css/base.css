@@ -1,0 +1,109 @@
+/*
+this in header
+ */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    color: #ccc;
+}
+
+.menu li form {
+    display: flex;
+    align-items: center;
+}
+
+.menu li input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 3px 0 0 3px;
+}
+
+.menu li button[type="submit"] {
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.menu-secundario {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-secundario li {
+    margin: 0 10px;
+}
+
+.menu-secundario a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.menu-secundario a:hover {
+    color: #ccc;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+footer nav ul li {
+    margin: 0 10px;
+}
+
+footer nav ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+footer nav ul a:hover {
+    color: #ccc;
+}
