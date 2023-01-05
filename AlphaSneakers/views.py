@@ -9,7 +9,7 @@ from AlphaSneakers.models import *
 
 def home_view(request):
     featured_sneakers = Sneaker.objects.filter()  # Recupera los productos destacados
-    promotions = Promotion.objects.all()
+    promotions = Promotion.objects.all()  # Recupera las promociones
     context = {
         'featured_sneakers': featured_sneakers,
         'promotions': promotions,
@@ -18,9 +18,10 @@ def home_view(request):
 
 
 def search(request):
-    query = request.GET.get('query')
+    query = request.GET.get('query')  # Recupera la consulta de búsqueda
     if query:
-        sneakers = Sneaker.objects.filter(name__icontains=query)
+        sneakers = Sneaker.objects.filter(
+            name__icontains=query)  # Filtra los productos en función de la consulta de búsqueda
     else:
         sneakers = Sneaker.objects.none()
     context = {
@@ -85,7 +86,6 @@ def product_list(request):
         'sneakers': sneakers,
     }
     return render(request, 'AlphaSneakers/product_list.html', context)
-
 
 
 def product_detail(request, pk):
